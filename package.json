@@ -1,0 +1,23 @@
+{
+  "name": "contributions-store",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "node src/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.16",
+    "@types/mysql": "^2.15.18",
+    "chai": "^4.3.4",
+    "mocha": "^8.3.2"
+  }
+}
