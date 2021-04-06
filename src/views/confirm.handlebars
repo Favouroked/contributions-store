@@ -1,0 +1,58 @@
+<h1>Wikimedia Donations</h1>
+<b>First Name: </b> {{firstName}} <br>
+<b>Last Name: </b> {{lastName}} <br>
+<b>Street Address: </b> {{streetAddress}} <br>
+<b>City: </b> {{city}} <br>
+<b>State/Region: </b> {{state}} <br>
+<b>Country: </b> {{country}} <br>
+<b>Postal Code: </b> {{postalCode}} <br>
+<b>Phone Number: </b> {{phoneNumber}} <br>
+<b>E-mail: </b> {{email}} <br>
+<b>Preferred form of contact: </b> {{formOfContact}} <br>
+<b>Preferred form of payment: </b> {{formOfPayment}} <br>
+<b>Frequency of donation: </b> {{frequencyOfDonation}} <br>
+<b>Amount of donation: </b> {{donationAmount}} <br>
+<b>Projected Yearly Donations: </b> {{yearlyContributionInCurrency}} <br>
+{{#if isNotUsd }}
+    <b>Projected Yearly Donations in USD: </b> {{yearlyContributionInDollars}} <br>
+{{/if}}
+<b>Comments: </b> {{comments}} <br>
+
+<button>Edit</button>
+<button onclick="cancelContribution()">Cancel</button>
+<button onclick="confirmContribution()">Confirm</button>
+<script>
+    const firstName = "{{firstName}}";
+    const lastName = "{{lastName}}";
+    const streetAddress = "{{streetAddress}}";
+    const city = "{{city}}";
+    const state = "{{state}}";
+    const country = "{{country}}";
+    const postalCode = "{{postalCode}}";
+    const phoneNumber = "{{phoneNumber}}";
+    const email = "{{email}}";
+    const formOfContact = "{{formOfContact}}";
+    const formOfPayment = "{{formOfPayment}}";
+    const frequencyOfDonation = "{{frequencyOfDonation}}";
+    const donationAmount = parseInt("{{donationAmount}}");
+    const comments = "{{comments}}";
+    const body = {firstName, lastName, streetAddress, city, state, country, postalCode, phoneNumber, email, formOfContact, formOfPayment, frequencyOfDonation, donationAmount, comments};
+
+
+    function cancelContribution() {
+        alert('Thank you for your consideration');
+        window.location.href = "/";
+    }
+    async function confirmContribution() {
+        await fetch('/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(body)
+        });
+        alert("Thank you. Someone will get in touch with you shortly");
+        window.location.href = "/";
+
+    }
+</script>
