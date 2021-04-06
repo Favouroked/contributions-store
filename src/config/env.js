@@ -9,7 +9,7 @@ const env = {
     MYSQL_DATABASE: getRequiredEnv('MYSQL_DATABASE'),
     COUNTRIES_API: "https://gist.githubusercontent.com/kalinchernev/486393efcca01623b18d/raw/daa24c9fea66afb7d68f8d69f0c4b8eeb9406e83/countries",
     EXCHANGE_RATE_API_KEY: getRequiredEnv("EXCHANGE_RATE_API_KEY"),
-    LATEST_EXCHANGE_RATE_API: "https://api.exchangeratesapi.io/v1/latest"
+    LATEST_EXCHANGE_RATE_API: "http://api.exchangeratesapi.io/v1/latest"
 };
 
 module.exports = env;

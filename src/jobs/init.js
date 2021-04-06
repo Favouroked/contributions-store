@@ -1,7 +1,8 @@
-const {connection} = require('../db/mysql');
+const {getConnection} = require('../db/mysql');
 
 const {retrieveSQL} = require('../utils/db');
 
+const connection = getConnection();
 
 const createContributionTable = () => {
     connection.connect();

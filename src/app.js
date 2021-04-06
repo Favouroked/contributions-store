@@ -27,6 +27,7 @@ app.get('/', async (req, res) => {
 });
 
 app.post('/confirm', async (req, res) => {
+    console.log(req.body);
     let {donationAmount, frequencyOfDonation, formOfPayment} = req.body;
     donationAmount = parseInt(donationAmount);
     const yearlyContributionInCurrency = donationAmount * YEARLY_PROJECTION[frequencyOfDonation];
@@ -40,11 +41,13 @@ app.post('/confirm', async (req, res) => {
         ...req.body,
         yearlyContributionInDollars,
         yearlyContributionInCurrency,
-        isNotUsd: formOfPayment !== 'USD'
+        isNotUsd: formOfPayment !== 'USD',
+        comments: req.body.comments.trim()
     });
 });
 
 app.post('/submit', (req, res) => {
+    console.log('data', req.body);
     insertContribution(req.body);
     return res.json({status: true})
 });
